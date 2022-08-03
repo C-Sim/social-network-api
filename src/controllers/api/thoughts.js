@@ -1,4 +1,8 @@
-const getAllThoughts = () => {};
+const { Thought } = require("../../models");
+
+const getAllThoughts = (req, res) => {
+  return res.send("getAllThoughts");
+};
 
 const getThoughtById = () => {};
 

@@ -44,6 +44,12 @@ userSchema.virtual("friendCount").get(function () {
 
 const schema = new Schema(userSchema);
 
+// where will userId come from?
+schema.pre("remove", function (next) {
+  Thought.remove({ userId: this._id }).exec();
+  next();
+});
+
 const User = model("User", schema);
 
 module.exports = User;

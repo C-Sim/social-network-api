@@ -1,4 +1,8 @@
-const addFriend = () => {};
+const { User } = require("../../models");
+
+const addFriend = (req, res) => {
+  return res.send("addFriend");
+};
 
 const removeFriend = () => {};
 
