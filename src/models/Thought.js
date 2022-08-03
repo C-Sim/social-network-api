@@ -2,6 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const reactionSchema = require("./Reaction");
 
+const dateFns = require("date-fns");
+
 const thoughtSchema = {
   thoughtText: {
     type: String,
@@ -11,7 +13,7 @@ const thoughtSchema = {
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: dateFns.format(new Date(Date.now), "dd mmm yyyy hh:mm"),
     // Set default value to the current timestamp
     // Use a getter method to format the timestamp on query
   },
