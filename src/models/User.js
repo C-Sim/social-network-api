@@ -37,17 +37,21 @@ const userSchema = {
   ],
 };
 
-// Create a virtual called `friendCount` that retrieves the length of the user's `friends` array field on query.
-userSchema.virtual("friendCount").get(function () {
-  return this.friends.length;
+const schema = new Schema(userSchema, {
+  toJSON: {
+    virtuals: true,
+  },
 });
-
-const schema = new Schema(userSchema);
 
 // where will userId come from?
 schema.pre("remove", function (next) {
   Thought.remove({ userId: this._id }).exec();
   next();
+});
+
+// Create a virtual called `friendCount` that retrieves the length of the user's `friends` array field on query.
+schema.virtual("friendCount").get(function () {
+  return this.friends.length;
 });
 
 const User = model("User", schema);

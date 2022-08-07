@@ -18,7 +18,7 @@ const reactionSchema = {
   },
   createdAt: {
     type: Date,
-    default: dateFns.format(new Date(Date.now), "dd mmm yyyy hh:mm"),
+    // default: dateFns.format(new Date(Date.now), "dd mmm yyyy hh:mm"),
     // Set default value to the current timestamp
     // Use a getter method to format the timestamp on query
   },
