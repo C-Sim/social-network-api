@@ -1,9 +1,11 @@
 const { Schema, model } = require("mongoose");
 
+const dateFns = require("date-fns");
+
 const reactionSchema = {
   reactionId: {
     type: Schema.Types.ObjectId,
-    // default: new Schema.Types.ObjectId,
+    default: new Schema.Types.ObjectId(),
     // Use Mongoose's ObjectId data type
     // Default value is set to a new ObjectId
   },
@@ -18,8 +20,7 @@ const reactionSchema = {
   },
   createdAt: {
     type: Date,
-    // default: dateFns.format(new Date(Date.now), "dd mmm yyyy hh:mm"),
-    // Set default value to the current timestamp
+    default: dateFns.format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS"),
     // Use a getter method to format the timestamp on query
   },
 };

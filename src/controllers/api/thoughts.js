@@ -1,10 +1,32 @@
 const { Thought } = require("../../models");
 
-const getAllThoughts = (req, res) => {
-  return res.send("getAllThoughts");
+const getAllThoughts = async (req, res) => {
+  try {
+    const thoughts = await Thought.find({});
+
+    return res.json({ data: thoughts });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get thoughts | ${error.message}`);
+  }
 };
 
-const getThoughtById = () => {};
+const getThoughtById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const thought = await Thought.findById(id);
+
+    if (!thought) {
+      return res
+        .status(404)
+        .json({ success: false, message: "No thought found" });
+    }
+
+    return res.json({ data: thought });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get thought | ${error.message}`);
+  }
+};
 
 const createThought = () => {};
 
