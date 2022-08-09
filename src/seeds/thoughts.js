@@ -1,5 +1,91 @@
 const { Thought } = require("../models");
 
+const x = {
+  "C-B": [
+    {
+      thoughtText: "If it's up, then it's up",
+      createdAt: "8 Aug 2020 08:08",
+      username: "C-B",
+      reactions: [],
+    },
+    {
+      thoughtText: "That's not a reliable source",
+      createdAt: "8 Aug 2020 08:08",
+      username: "C-B",
+      reactions: [],
+    },
+  ],
+  "M-t-S": [
+    {
+      thoughtText: "It's a hot summer",
+      createdAt: "8 Aug 2020 08:08",
+      username: "M-t-S",
+      reactions: [],
+    },
+  ],
+  "J-C": [
+    {
+      thoughtText: "On a power trip",
+      createdAt: "8 Aug 2020 08:08",
+      username: "J-C",
+      reactions: [],
+    },
+    {
+      thoughtText: "Summertime fine",
+      createdAt: "8 Aug 2020 08:08",
+      username: "J-C",
+      reactions: [],
+    },
+  ],
+  "C-P": [
+    {
+      thoughtText: "Overly focused, it's far from the time to rest now",
+      createdAt: "8 Aug 2020 08:08",
+      username: "C-P",
+      reactions: [],
+    },
+    {
+      thoughtText: "I don't plan on stopping at all",
+      createdAt: "8 Aug 2020 08:08",
+      username: "C-P",
+      reactions: [],
+    },
+  ],
+  "J-Z": [
+    {
+      thoughtText: "Spent all my euros on tuxes and weird clothes",
+      createdAt: "8 Aug 2020 08:08",
+      username: "J-Z",
+      reactions: [],
+    },
+    {
+      thoughtText:
+        "Never been afraid to say what's on my mind, at any given time of day",
+      createdAt: "8 Aug 2020 08:08",
+      username: "J-Z",
+      reactions: [],
+    },
+  ],
+  "M-M": {
+    thoughtText: "Hit me back, just to chat. Truly yours, your biggest fan.",
+    createdAt: "8 Aug 2020 08:08",
+    username: "M-M",
+    reactions: [],
+  },
+  "N-M": {
+    thoughtText: "No time to talk, just Hi and Bye",
+    createdAt: "8 Aug 2020 08:08",
+    username: "N-M",
+    reactions: [],
+  },
+  "D-C": {
+    thoughtText: "You got to keep me focused",
+    createdAt: "8 Aug 2020 08:08",
+    username: "D-C",
+    reactions: [],
+  },
+};
+
 const thoughts = [
   {
     thoughtText: "If it's up, then it's up",

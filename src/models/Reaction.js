@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 
 const dateFns = require("date-fns");
 
@@ -27,6 +27,4 @@ const reactionSchema = {
 
 const schema = new Schema(reactionSchema);
 
-const Reaction = model("Reaction", schema);
-
-module.exports = Reaction;
+module.exports = schema;

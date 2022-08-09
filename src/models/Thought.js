@@ -22,7 +22,7 @@ const thoughtSchema = {
   },
 
   // Array of nested documents created with the `reactionSchema`
-  // reactions: reactionSchema,
+  reactions: [reactionSchema],
 };
 
 const schema = new Schema(thoughtSchema);
