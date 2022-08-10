@@ -7,8 +7,11 @@ const getAllUsers = async (req, res) => {
     return res.json({ data: users });
   } catch (error) {
     console.log(`[ERROR]: Failed to get users | ${error.message}`);
-    // add error message
-    return res.status(500);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to get users",
+    });
   }
 };
 
@@ -25,8 +28,11 @@ const getUserById = async (req, res) => {
     return res.json({ data: user });
   } catch (error) {
     console.log(`[ERROR]: Failed to get user | ${error.message}`);
-    // add error message
-    return res.status(500);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to get user",
+    });
   }
 };
 
@@ -100,9 +106,7 @@ const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const user = await User.destroy({
-      where: { id },
-    });
+    const user = await User.destroy({ id });
 
     if (!user) {
       console.log(`[ERROR]: Failed to find user | No user with id of ${id}`);

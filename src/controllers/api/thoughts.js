@@ -7,6 +7,11 @@ const getAllThoughts = async (req, res) => {
     return res.json({ data: thoughts });
   } catch (error) {
     console.log(`[ERROR]: Failed to get thoughts | ${error.message}`);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to get thoughts",
+    });
   }
 };
 
@@ -25,6 +30,11 @@ const getThoughtById = async (req, res) => {
     return res.json({ data: thought });
   } catch (error) {
     console.log(`[ERROR]: Failed to get thought | ${error.message}`);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to get thought",
+    });
   }
 };
 
