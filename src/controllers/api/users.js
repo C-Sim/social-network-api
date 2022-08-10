@@ -70,23 +70,21 @@ const updateUser = async (req, res) => {
     const { username, email } = req.body;
     const { id } = req.params;
 
-    const user = await User.findOne({ where: { id } });
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { username, email },
+      { new: true }
+    );
 
-    if (!user) {
+    if (!updatedUser) {
       console.log(`[ERROR]: Failed to find user | No user with id of ${id}`);
 
       return res.status(404).json({ error: "Failed to find user" });
     }
 
-    await User.update(
-      { username, email },
-      {
-        where: { id },
-      }
-    );
-
     return res.json({
       success: true,
+      data: updatedUser,
     });
   } catch (error) {
     console.log(`[ERROR: Failed to update user | ${error.message}]`);
