@@ -28,7 +28,14 @@ const getThoughtById = async (req, res) => {
   }
 };
 
-const createThought = () => {};
+const createThought = () => {
+  // get all thought fields from payload
+  // get user id from payload
+  // create thought and get id of new thought
+  // find user by user id
+  // push thought id to thoughts
+  // return res
+};
 
 const updateThought = () => {};
 
