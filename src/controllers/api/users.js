@@ -7,6 +7,8 @@ const getAllUsers = async (req, res) => {
     return res.json({ data: users });
   } catch (error) {
     console.log(`[ERROR]: Failed to get users | ${error.message}`);
+    // add error message
+    return res.status(500);
   }
 };
 
@@ -23,6 +25,8 @@ const getUserById = async (req, res) => {
     return res.json({ data: user });
   } catch (error) {
     console.log(`[ERROR]: Failed to get user | ${error.message}`);
+    // add error message
+    return res.status(500);
   }
 };
 
@@ -30,7 +34,7 @@ const createUser = async (req, res) => {
   try {
     const { username, email } = req.body;
 
-    const user = await User.findOne({ where: { username } });
+    const user = await User.findOne({ username });
 
     if (user) {
       console.log(
@@ -61,9 +65,65 @@ const createUser = async (req, res) => {
   }
 };
 
-const updateUser = () => {};
+const updateUser = async (req, res) => {
+  try {
+    const { username, email } = req.body;
+    const { id } = req.params;
 
-const deleteUser = () => {};
+    const user = await User.findOne({ where: { id } });
+
+    if (!user) {
+      console.log(`[ERROR]: Failed to find user | No user with id of ${id}`);
+
+      return res.status(404).json({ error: "Failed to find user" });
+    }
+
+    await User.update(
+      { username, email },
+      {
+        where: { id },
+      }
+    );
+
+    return res.json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(`[ERROR: Failed to update user | ${error.message}]`);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to update user",
+    });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.destroy({
+      where: { id },
+    });
+
+    if (!user) {
+      console.log(`[ERROR]: Failed to find user | No user with id of ${id}`);
+
+      return res.status(404).json({ error: "Failed to find user" });
+    }
+
+    return res.json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(`[ERROR: Failed to delete user | ${error.message}]`);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to delete user",
+    });
+  }
+};
 
 module.exports = {
   getAllUsers,
