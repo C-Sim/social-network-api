@@ -106,7 +106,7 @@ const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const user = await User.destroy({ id });
+    const user = await User.findByIdAndRemove(id);
 
     if (!user) {
       console.log(`[ERROR]: Failed to find user | No user with id of ${id}`);
@@ -116,6 +116,7 @@ const deleteUser = async (req, res) => {
 
     return res.json({
       success: true,
+      message: "Successfully deleted user",
     });
   } catch (error) {
     console.log(`[ERROR: Failed to delete user | ${error.message}]`);
