@@ -2,21 +2,21 @@ const { User } = require("../../models");
 
 const addFriend = async (req, res) => {
   try {
-    const friendId = req.body;
+    const { id } = req.body;
     const { userId } = req.params;
 
-    console.log(friendId);
+    console.log(id);
     console.log(userId);
 
-    const user = await User.findOne(userId);
+    const user = await User.findById(userId);
 
     console.log(user);
 
-    if (friendId) {
+    if (id) {
       const friend = await User.findByIdAndUpdate(
         userId,
         {
-          $push: { friends: friendId },
+          $push: { friends: id },
         },
         { returnDocument: "after" }
       );
@@ -43,12 +43,12 @@ const addFriend = async (req, res) => {
 
 const removeFriend = async (req, res) => {
   try {
-    const { userId, friendId } = req.params;
+    const { userId, id } = req.params;
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,
       {
-        $pull: { friends: { friendId } },
+        $pull: { friends: id },
       },
       { returnDocument: "after" }
     );

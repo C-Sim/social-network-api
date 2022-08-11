@@ -5,9 +5,9 @@ const {
   removeReaction,
 } = require("../../controllers/api/reactions");
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
 router.post("/", addReaction);
-router.delete("/:id", removeReaction);
+router.delete("/:reactionId", removeReaction);
 
 module.exports = router;

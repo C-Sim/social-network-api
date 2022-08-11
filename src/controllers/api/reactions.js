@@ -42,6 +42,9 @@ const removeReaction = async (req, res) => {
   try {
     const { thoughtId, reactionId } = req.params;
 
+    console.log(thoughtId);
+    console.log(reactionId);
+
     const updatedThought = await Thought.findByIdAndUpdate(
       thoughtId,
       {
