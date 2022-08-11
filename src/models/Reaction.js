@@ -5,7 +5,7 @@ const formatDate = require("../utils/formatDate");
 const reactionSchema = {
   reactionId: {
     type: Schema.Types.ObjectId,
-    default: new Schema.Types.ObjectId(),
+    required: true,
     auto: true,
   },
   reactionBody: {
@@ -24,6 +24,10 @@ const reactionSchema = {
   },
 };
 
-const schema = new Schema(reactionSchema);
+const schema = new Schema(reactionSchema, {
+  toJSON: {
+    getters: true,
+  },
+});
 
 module.exports = schema;

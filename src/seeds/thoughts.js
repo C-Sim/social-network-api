@@ -1,91 +1,5 @@
 const { Thought } = require("../models");
 
-const x = {
-  "C-B": [
-    {
-      thoughtText: "If it's up, then it's up",
-      createdAt: "8 Aug 2020 08:08",
-      username: "C-B",
-      reactions: [],
-    },
-    {
-      thoughtText: "That's not a reliable source",
-      createdAt: "8 Aug 2020 08:08",
-      username: "C-B",
-      reactions: [],
-    },
-  ],
-  "M-t-S": [
-    {
-      thoughtText: "It's a hot summer",
-      createdAt: "8 Aug 2020 08:08",
-      username: "M-t-S",
-      reactions: [],
-    },
-  ],
-  "J-C": [
-    {
-      thoughtText: "On a power trip",
-      createdAt: "8 Aug 2020 08:08",
-      username: "J-C",
-      reactions: [],
-    },
-    {
-      thoughtText: "Summertime fine",
-      createdAt: "8 Aug 2020 08:08",
-      username: "J-C",
-      reactions: [],
-    },
-  ],
-  "C-P": [
-    {
-      thoughtText: "Overly focused, it's far from the time to rest now",
-      createdAt: "8 Aug 2020 08:08",
-      username: "C-P",
-      reactions: [],
-    },
-    {
-      thoughtText: "I don't plan on stopping at all",
-      createdAt: "8 Aug 2020 08:08",
-      username: "C-P",
-      reactions: [],
-    },
-  ],
-  "J-Z": [
-    {
-      thoughtText: "Spent all my euros on tuxes and weird clothes",
-      createdAt: "8 Aug 2020 08:08",
-      username: "J-Z",
-      reactions: [],
-    },
-    {
-      thoughtText:
-        "Never been afraid to say what's on my mind, at any given time of day",
-      createdAt: "8 Aug 2020 08:08",
-      username: "J-Z",
-      reactions: [],
-    },
-  ],
-  "M-M": {
-    thoughtText: "Hit me back, just to chat. Truly yours, your biggest fan.",
-    createdAt: "8 Aug 2020 08:08",
-    username: "M-M",
-    reactions: [],
-  },
-  "N-M": {
-    thoughtText: "No time to talk, just Hi and Bye",
-    createdAt: "8 Aug 2020 08:08",
-    username: "N-M",
-    reactions: [],
-  },
-  "D-C": {
-    thoughtText: "You got to keep me focused",
-    createdAt: "8 Aug 2020 08:08",
-    username: "D-C",
-    reactions: [],
-  },
-};
-
 const thoughts = [
   {
     thoughtText: "If it's up, then it's up",
@@ -93,7 +7,6 @@ const thoughts = [
     username: "C-B",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "I know that's right!",
         username: "M-t-S",
         createdAt: "8 Aug 2020 08:18",
@@ -106,19 +19,16 @@ const thoughts = [
     username: "M-t-S",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "We're not talking about degrees",
         username: "N-M",
         createdAt: "8 Aug 2020 08:18",
       },
       {
-        reactionId: "",
         reactionBody: "I like it like that",
         username: "C-B",
         createdAt: "8 Aug 2020 08:18",
       },
       {
-        reactionId: "",
         reactionBody: ";)",
         username: "D-C",
         createdAt: "8 Aug 2020 08:18",
@@ -129,14 +39,7 @@ const thoughts = [
     thoughtText: "On a power trip",
     createdAt: "8 Aug 2020 08:08",
     username: "J-C",
-    reactions: [
-      {
-        reactionId: "",
-        reactionBody: "",
-        username: "",
-        createdAt: "8 Aug 2020 08:18",
-      },
-    ],
+    reactions: [],
   },
   {
     thoughtText: "Summertime fine",
@@ -144,7 +47,6 @@ const thoughts = [
     username: "J-C",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "Wintertime cold",
         username: "C-P",
         createdAt: "8 Aug 2020 08:18",
@@ -157,13 +59,11 @@ const thoughts = [
     username: "C-P",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "cake, cake, cake, cake, cake",
         username: "J-Z",
         createdAt: "8 Aug 2020 08:18",
       },
       {
-        reactionId: "",
         reactionBody: "C.R.E.A.M",
         username: "J-C",
         createdAt: "8 Aug 2020 08:18",
@@ -176,7 +76,6 @@ const thoughts = [
     username: "C-P",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "The passion and the flame is ignited",
         username: "M-M",
         createdAt: "8 Aug 2020 08:18",
@@ -189,7 +88,6 @@ const thoughts = [
     username: "J-Z",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "International",
         username: "C-P",
         createdAt: "8 Aug 2020 08:18",
@@ -200,14 +98,7 @@ const thoughts = [
     thoughtText: "Hit me back, just to chat. Truly yours, your biggest fan.",
     createdAt: "8 Aug 2020 08:08",
     username: "M-M",
-    reactions: [
-      {
-        reactionId: "",
-        reactionBody: "",
-        username: "...",
-        createdAt: "8 Aug 2020 08:18",
-      },
-    ],
+    reactions: [],
   },
   {
     thoughtText: "No time to talk, just Hi and Bye",
@@ -215,7 +106,6 @@ const thoughts = [
     username: "N-M",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "I know things get hard but girl you've got it",
         username: "C-P",
         createdAt: "8 Aug 2020 08:18",
@@ -226,14 +116,7 @@ const thoughts = [
     thoughtText: "You got to keep me focused",
     createdAt: "8 Aug 2020 08:08",
     username: "D-C",
-    reactions: [
-      {
-        reactionId: "",
-        reactionBody: "",
-        username: "...",
-        createdAt: "8 Aug 2020 08:18",
-      },
-    ],
+    reactions: [],
   },
   {
     thoughtText: "That's not a reliable source",
@@ -241,7 +124,6 @@ const thoughts = [
     username: "C-B",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "You've seen the stats...you know what I am about",
         username: "N-M",
         createdAt: "8 Aug 2020 08:18",
@@ -255,7 +137,6 @@ const thoughts = [
     username: "J-Z",
     reactions: [
       {
-        reactionId: "",
         reactionBody: "Maybe it's food for the spirit",
         username: "M-M",
         createdAt: "8 Aug 2020 08:18",

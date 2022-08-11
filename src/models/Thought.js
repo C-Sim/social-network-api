@@ -27,6 +27,7 @@ const thoughtSchema = {
 const schema = new Schema(thoughtSchema, {
   toJSON: {
     virtuals: true,
+    getters: true,
   },
 });
 
