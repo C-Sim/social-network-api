@@ -52,14 +52,21 @@ const createUser = async (req, res) => {
       });
     }
 
-    const newUser = await User.create({
-      username,
-      email,
-    });
+    if (username && email) {
+      const newUser = await User.create({
+        username,
+        email,
+      });
 
-    return res.status(201).json({
-      success: true,
-      data: newUser,
+      return res.status(201).json({
+        success: true,
+        data: newUser,
+      });
+    }
+
+    return res.status(400).json({
+      success: false,
+      error: "Please enter username and email.",
     });
   } catch (error) {
     console.log(`[ERROR: Failed to create user | ${error.message}]`);

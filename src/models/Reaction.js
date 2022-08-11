@@ -1,13 +1,11 @@
 const { Schema } = require("mongoose");
 
-const dateFns = require("date-fns");
+const formatDate = require("../utils/formatDate");
 
 const reactionSchema = {
   reactionId: {
     type: Schema.Types.ObjectId,
     default: new Schema.Types.ObjectId(),
-    // Use Mongoose's ObjectId data type
-    // Default value is set to a new ObjectId
   },
   reactionBody: {
     type: String,
@@ -20,8 +18,8 @@ const reactionSchema = {
   },
   createdAt: {
     type: Date,
-    default: dateFns.format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS"),
-    // Use a getter method to format the timestamp on query
+    default: Date.now,
+    get: formatDate,
   },
 };
 

@@ -1,42 +1,35 @@
 const { User } = require("../../models");
 
 const addFriend = async (req, res) => {
-  // get friend id from payload
-
   try {
-    const friendId = req.body.id;
+    const friendId = req.body;
     const { userId } = req.params;
 
     console.log(friendId);
     console.log(userId);
 
-    // find user by user id
-    const user = await User.findOne({ userId });
+    const user = await User.findOne(userId);
 
     console.log(user);
 
-    if (user.friends.includes(friendId)) {
-      console.log(
-        `[ERROR]: Failed to add friend | Friend ID of ${friendId} already exists for user ${userId}`
+    if (friendId) {
+      const friend = await User.findByIdAndUpdate(
+        userId,
+        {
+          $push: { friends: friendId },
+        },
+        { returnDocument: "after" }
       );
 
-      return res.status(400).json({
-        error: `Failed to add friend | Friend ID of ${friendId} already exists for user ${userId}`,
+      return res.status(201).json({
+        success: true,
+        data: friend,
       });
     }
 
-    // update user by pushing friendid to array
-    const [friends] = user.friends.push(friendId);
-
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      { friends },
-      { new: true }
-    );
-
-    return res.status(201).json({
-      success: true,
-      data: updatedUser,
+    return res.status(400).json({
+      success: false,
+      error: "Please enter the user ID for the friend.",
     });
   } catch (error) {
     console.log(`[ERROR: Failed to add friend | ${error.message}]`);
@@ -48,6 +41,29 @@ const addFriend = async (req, res) => {
   }
 };
 
-const removeFriend = () => {};
+const removeFriend = async (req, res) => {
+  try {
+    const { userId, friendId } = req.params;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        $pull: { friends: { friendId } },
+      },
+      { returnDocument: "after" }
+    );
+    return res.status(201).json({
+      success: true,
+      data: updatedUser,
+    });
+  } catch (error) {
+    console.log(`[ERROR: Failed to delete friend | ${error.message}]`);
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to delete friend",
+    });
+  }
+};
 
 module.exports = { addFriend, removeFriend };

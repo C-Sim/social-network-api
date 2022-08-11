@@ -39,18 +39,10 @@ const getThoughtById = async (req, res) => {
 };
 
 const createThought = async (req, res) => {
-  // get all thought fields from payload
-  // get user id from payload
-  // create thought and get id of new thought
-  // find user by user id
-  // push thought id to thoughts
-  // return res
   try {
     const { thoughtText, username, userId } = req.body;
 
     const thought = await Thought.findOne({ thoughtText });
-
-    const user = await User.findOne({ userId });
 
     if (thought) {
       console.log(
@@ -62,20 +54,27 @@ const createThought = async (req, res) => {
       });
     }
 
-    const newThought = await Thought.create({
-      thoughtText,
-      username,
-      userId,
-    });
+    if (thoughtText && username && userId) {
+      const newThought = await Thought.create({
+        thoughtText,
+        username,
+        userId,
+      });
 
-    const thoughtId = newThought.id;
+      await User.findByIdAndUpdate(
+        { _id: userId },
+        { $push: { thoughts: newThought._id } }
+      );
 
-    user.thoughts.push(thoughtId);
+      return res.status(201).json({
+        success: true,
+        data: newThought,
+      });
+    }
 
-    return res.status(201).json({
-      success: true,
-      data: newThought,
-      user,
+    return res.status(400).json({
+      success: false,
+      error: "Please enter username, user ID and thought",
     });
   } catch (error) {
     console.log(`[ERROR: Failed to create thought | ${error.message}]`);

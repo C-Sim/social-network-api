@@ -14,7 +14,6 @@ const userSchema = {
     required: true,
     unique: true,
     validate: {
-      // check
       validator: validator.isEmail,
       message: "Please enter a valid email address",
       isAsync: false,
