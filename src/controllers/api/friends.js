@@ -5,12 +5,7 @@ const addFriend = async (req, res) => {
     const { id } = req.body;
     const { userId } = req.params;
 
-    console.log(id);
-    console.log(userId);
-
     const user = await User.findById(userId);
-
-    console.log(user);
 
     if (id) {
       const friend = await User.findByIdAndUpdate(

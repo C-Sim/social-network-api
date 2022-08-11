@@ -42,18 +42,6 @@ const createThought = async (req, res) => {
   try {
     const { thoughtText, username, userId } = req.body;
 
-    const thought = await Thought.findOne({ thoughtText });
-
-    if (thought) {
-      console.log(
-        `[ERROR]: Failed to create thought | Thought of ${thoughtText} already exists`
-      );
-
-      return res.status(400).json({
-        error: `Failed to create thought | Thought of ${thoughtText} already exists`,
-      });
-    }
-
     if (thoughtText && username && userId) {
       const newThought = await Thought.create({
         thoughtText,

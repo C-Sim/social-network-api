@@ -6,9 +6,6 @@ const addReaction = async (req, res) => {
 
     const { thoughtId } = req.params;
 
-    console.log(reactionBody);
-    console.log(thoughtId);
-
     if (reactionBody) {
       const reaction = await Thought.findByIdAndUpdate(
         thoughtId,
@@ -41,9 +38,6 @@ const addReaction = async (req, res) => {
 const removeReaction = async (req, res) => {
   try {
     const { thoughtId, reactionId } = req.params;
-
-    console.log(thoughtId);
-    console.log(reactionId);
 
     const updatedThought = await Thought.findByIdAndUpdate(
       thoughtId,
