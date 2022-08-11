@@ -2,7 +2,7 @@
 
 An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. Using Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
-[Demo](...)
+[Demo](https://drive.google.com/file/d/1nzQcFIwDrSmo95g4HgRDpLq7Lse1V0mB/view?usp=sharing)
 
 ## Technologies
 
@@ -14,27 +14,21 @@ An API for a social network web application where users can share their thoughts
 - Date-fns
 - dotenv
 - Postman
+- Validator
 
 ## Screenshots
 
 <details>
 <summary>Users</summary>
 
-![users](...)
+![users](screenshots/users.png)
 
 </details>
 
 <details>
 <summary>Thoughts</summary>
 
-![thoughts](...)
-
-</details>
-
-<details>
-<summary>Reactions</summary>
-
-![reactions](...)
+![thoughts](screenshots/thoughts.png)
 
 </details>
 
