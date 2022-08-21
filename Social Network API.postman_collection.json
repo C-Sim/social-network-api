@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "c270eda2-1167-4668-8414-2b407fff26e8",
+		"name": "Social Network API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21413374"
+	},
+	"item": [
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/users/62f58196e386046308c4a855",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"62f58196e386046308c4a855"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"R-F\",\n  \"email\": \"robyn@fenty.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"R-R\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/62f58523125696341eef230c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"62f58523125696341eef230c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/users/62f58523125696341eef230c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"62f58523125696341eef230c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all thoughts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get thought by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/62f58196e386046308c4a85e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						"62f58196e386046308c4a85e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create thought",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"thoughtText\": \"Here's a cool thought...\",\n  \"username\": \"C-B\",\n  \"userId\": \"62f58196e386046308c4a852\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update thought by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"thoughtText\": \"If it's up, then it's up!!!!!!!!!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/62f58196e386046308c4a85b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						"62f58196e386046308c4a85b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete thought by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/62f5859f125696341eef2325",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						"62f5859f125696341eef2325"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add friend",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"62f505aac809e32cd372b073\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/62f58196e386046308c4a855/friends",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"62f58196e386046308c4a855",
+						"friends"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove friend",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/users/62f58196e386046308c4a855/friends/62f505aac809e32cd372b073",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"62f58196e386046308c4a855",
+						"friends",
+						"62f505aac809e32cd372b073"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add reaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reactionBody\": \"All the way up\",\n  \"username\": \"J-Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/62f58196e386046308c4a85b/reactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						"62f58196e386046308c4a85b",
+						"reactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove reaction",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/thoughts/62f58196e386046308c4a85b/reactions/62f58618125696341eef2356",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"thoughts",
+						"62f58196e386046308c4a85b",
+						"reactions",
+						"62f58618125696341eef2356"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

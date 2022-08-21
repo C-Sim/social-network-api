@@ -1,0 +1,32 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. Using Express.js for routing, a MongoDB database, and the Mongoose ODM.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "seed": "node src/seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C-Sim/social-network-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C-Sim/social-network-api/issues"
+  },
+  "homepage": "https://github.com/C-Sim/social-network-api#readme",
+  "dependencies": {
+    "date-fns": "^2.29.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.1",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
